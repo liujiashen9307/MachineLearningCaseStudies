@@ -10,5 +10,7 @@ In this module, we focused on using regression to predict a continuous value (ho
 In this assignment, we are going to build a more accurate regression model for predicting house prices by including more features of the house. In the process, we will also become more familiar with how the Python language can be used for data exploration, data transformations and machine learning. These techniques will be key to building intelligent applications.
 
 **Data: home_data.csv**
+
 **Script: Predicting House Prices.Rmd**
+
 **Report: Predicting House Prices.pdf**
