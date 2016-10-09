@@ -1,5 +1,13 @@
 # Regression Model: Predict the House Price By Using Regression Techniques
 
+## Data Source
+
+Data (home_data.csv) is from Coursera Course: Machine Learning Foundations--- Case Study Approach, taught by Washington University. 
+
+Course Link: https://www.coursera.org/learn/ml-foundations/home/welcome
+
+
+
 ## Description:
 
 The project is finished by three Machine Tools as planned. I will upload the scripts in three tools seperately and compare the performance of them.
