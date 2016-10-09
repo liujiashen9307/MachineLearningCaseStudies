@@ -22,5 +22,11 @@ Models Used: Linear Regression, Random Forest
 
 2: IPython Notebook (GraphLab)
 
+Script:Regression Predicting House Prices with GraphLab.ipynb
+
+Report: Regression Predicting House Prices with GraphLab.md
+
+Models Used: Linear Regression, Random Forest, Boosting Model
+
 3: Ipython Notebook (Scikit-Learn)
 
