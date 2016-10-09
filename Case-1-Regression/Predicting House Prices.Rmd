@@ -1,0 +1,192 @@
+---
+title: 'Regression: Predicting House Prices'
+author: "Jason Liu"
+date: "Oct 2, 2016"
+output: word_document
+---
+**Statement**This project serves the purpose of demonstrating machine learning technique, regression, in R. The case is provided by the Coursera course: Machine Learning Foundamentals-- Case Studies, taught by Washington Unversity. This project is corresponding to the one professors show in IPython notebook.
+
+####Load Data and Packages
+```{r,message=FALSE,warning=FALSE}
+library(MASS)
+library(ggplot2)
+library(GGally)
+library(caret)
+library(randomForest)
+library(readr)
+library(magrittr)
+library(dplyr)
+library(sqldf)
+library(Metrics)
+Data<- read.csv('home_data.csv')
+```
+
+####Data Preprocessing and Exploration
+
+In general, the machine learning project get started with data preprocessing. In my opinion, the data preprocessing should include two important steps: Data cleansing and feature engineering. Having a look at the dataset, one can conclude that the integrity of dataset is perfect since it does not contain any 'NA' values. Therefore, we will focus on feature selection and engineering.
+
+#####Data Cleansing
+
+Although the dimension of dataset is not quite high, we still need to reduce the dimension in order to simplify the regression problem. Empiricalll judged, we can assume that the first feature, date, can be viewed as a redundant variable due to the fact that the dataset has already got time of build and rennovation. Therefore, together with 'id', the column 'date' should be delected from the dataset directly. Meanwhile, the categorical variables should be transformed to the factor.
+```{r}
+data<-Data[,-c(1,2)]
+```
+
+#####Spliting Dataset
+
+Before data exploration, one should split the dataset into two part: a training set for model fitting and a test set for the evaluation of the model. The data exploration should be done on the training set.
+
+```{r}
+set.seed(2222)
+intrain<-createDataPartition(p=0.75,y = data$price,list = FALSE)
+train<- data[intrain,]
+test<- data[-intrain,]
+```
+
+
+#####Explore Categorical Variables
+
+The next step is to transform the categorical variables into factors. Based on my experience, the variables of 'waterfront' ,'condition' and 'view' should be the categorical variables. After the transformation, I create 3 box plots that can reflect the relationship between the features and the response variables.
+
+```{r,echo=FALSE}
+boxplot(price~waterfront,data = train,xlab='waterfront',ylab='price',main='Waterfront vs Price')
+boxplot(price~condition,data = train,xlab='condition',ylab='price',main='Condition vs Price')
+boxplot(price~view,data = train,xlab='view type',ylab='price',main='View vs Price')
+```
+
+We can see that whether the house has a waterfront has really big impact on the prices of the house. Meanwhile, the condition of house is a column of data that is not evenly distributed. The medians of prices for each condition are close to each other but the variance in '3rd condition' is obviously larger that the others. In terms of view type, we can find that the view types pf 3 and 4 have slight price advantages in comparison with the other types.
+
+#####Explore Size-Related Factors
+
+It should be also noted that the size of house has great impact on the price. After exploring the dataset, one can find out that the data set has several variables related to the size of house. If we just incorporate those variables in regression model simutaneously, the correlation among factors may result in multicolinearity, leading to the problem of overfitting. Therefore, we need explore them before implementing feature engineering.
+
+```{r,fig.width=15, fig.height=10}
+Size<-train %>% select(contains("sqft"))
+ggpairs(Size,lower = list(continuous = "smooth",method='lm'))
+```
+
+From the above pairs plot one can summarize that some variables are strongly correlated to other variables. **The square of living room is always correlated with the square of above area due to the structure of buildings.** Meanwhile, we find that the statistics of house size are strongly correlated with those of 15 nearest neighbours. Therefore, one can assume a fact that **the neighbourhood can be a poential factor that may influence the price of house**.
+
+#####Explore the Impact of Neighbourhood
+
+Through the above analysis, one can summarize that houses in the similar area may have similar size. Considering that the size of house may directly influence the house price and zip code can be viewed as a convenient indicator of the location of the house, we explore the relationship between the zip code and the price.
+
+```{r}
+zipcode<-sqldf('SELECT zipcode, avg(price) as AveragePrice from train group by zipcode')
+g<-ggplot(zipcode,aes(x=zipcode,y=AveragePrice))+geom_point()+geom_line(stat="identity")
+g
+```
+
+Through the above plot, we can find that in some area, the price of house is indeed high. The potential reason is probably that in some region, the houses are relatively large, therefore impacting the prices.
+
+#####Correlations among Variables
+
+The final step of the data exploration is to check the correlations among factors, including the response variable. We present a correlation matrix below in order to clarify the correlations.
+
+```{r}
+CorrelationMatrix<-cor(train[,c(1:6,10:19)])
+print(CorrelationMatrix)
+```
+
+Through the correlation matrix, one can find out that some features are highly correlated with each other. For example, the features of square feet of the house and that of the neighours will be the pair of variables that may result in multicolinearity. In the next part, I will build multiple regression models and evaluate them one by one.
+
+####Fitting Models
+
+#####Regression Model
+
+The first model we choose to fit is the classic regression model. Regression model should always be the first choice when one wants to perform predictive analytics on the continous variable. We first 
+
+```{r,warning=FALSE,message=FALSE}
+features_reg1<-c('price','bedrooms','bathrooms','sqft_living','sqft_lot','floors','zipcode')
+reg1<- lm(price~.,data = train[,features_reg1])
+summary(reg1)
+```
+
+Above presents the sumary of the first regression model. One can find out that the significances of coefficient are mostly able to pass the hythesis tests. The R-square is not good enough.
+
+Then we incorporate more features in the model. The categorical variables as well as the grade and year built are included. 
+
+```{r}
+features_reg2<-append(features_reg1,c('waterfront','view','condition','grade','yr_built'))
+reg2<-lm(price~.,data = train[,features_reg2])
+summary(reg2)
+```
+
+The adjusted R square has obvious improvement. However, the coefficient of zipcode is no longer statistically significant, which is not in accordance with the assumption made in data exploration.
+
+Finally, we build a regression model with all variables included. The summary of model is also presented.
+
+```{r}
+reg3<- lm(price~.,data=train)
+summary(reg3)
+```
+
+The adjusted R squared value is higher than the previous models while almost all variables have a coefficient that is statistically significant. I put the R squares of three model in one plot order to make the comparison more convenient.
+
+```{r}
+RSquare<-data.frame(Model=c('Model1','Model2','Model3'),R_Square=c(summary(reg1)$r.squared,summary(reg2)$r.squared,summary(reg3)$r.squared))
+ggplot(RSquare,aes(x=Model,y=R_Square))+geom_bar(stat = 'identity')+ggtitle('Comparison of R_Squares')+theme_bw()
+```
+
+For the last model, We plot the diagonsis of the final regression model below.
+
+```{r}
+par(mfrow=c(2,2))
+plot(reg3)
+```
+
+The diagnosis of the residual seems to be reasonable. The residuals are patternless and almost normally distributed. Meanwhile, the outliers with high leverage do not have huge impact on the model.
+
+Therefore, we use the regression model to make predictions based on the test set. In order to further compare the three regression model, we put the RMSE of three models together for a direct comparison.
+
+```{r,message=FALSE,warning=FALSE}
+prediction_reg1<- predict(reg1,newdata=test[,features_reg1[-1]])
+Accu1<-rmse(test$price,prediction_reg1)
+prediction_reg2<- predict(reg2,newdata=test[,features_reg2[-1]])
+Accu2<-rmse(test$price,prediction_reg2)
+prediction_reg3<- predict(reg3,newdata=test[,-1])
+Accu3<-rmse(test$price,prediction_reg3)
+Accuracy<-data.frame(Model=c('Model1','Model2','Model3'),RMSE=c(Accu1,Accu2,Accu3))
+ggplot(Accuracy,aes(x=Model,y=RMSE))+geom_bar(stat = 'identity')+ggtitle('Comparison of RMSE')+theme_bw()
+```
+
+It is obvious that the regression model with more features can provide a better prediction performance in this case. The regression model always has great intepretability, but the accuracy of prediction can not be guranteed. 
+
+#####Tree-Based Model
+
+Additionally, I try two advanced machine learning models for the comparison. 
+
+* Random Forest*
+
+The first model I choose is the random forest, which is a popular model that always can provide accurate result. In order to prevent overfitting, I use 3-fold cross validation to tune the parameter and test the model.
+
+```{r,message=FALSE,warning=FALSE,eval=FALSE}
+###Accu_rf= 137233.2481
+rf<- randomForest(price~.,data=train)
+rf_prediction<- predict(rf,newdata=test[,-1])
+Accu_rf<- rmse(test$price,rf_prediction)
+```
+
+Due to the intolerable speed of the model running, I choose to present the result directly in R-markdown file.
+
+```{r}
+Accu_rf<-137233.2481
+```
+We can see that the random forest model may provide a prediction that is way better than the basic regression model. 
+
+
+####Conclusion
+
+Through the above analysis, one can find out that the regression models have great intepretability.
+
+```{r,echo=FALSE}
+Accu<-data.frame(Model=c('Best Regression','Random Forest'),RMSE=c(Accu3,137233.2481))
+ggplot(Accu,aes(x=Model,y=RMSE))+geom_bar(stat='identity')+ggtitle('Accuracy Comparison')+theme_bw()
+```
+
+However, the regression model cannot provide the same accuracy as the random forest model, although it is a blackbox to some extent.
+
+
+
+
+
