@@ -16,3 +16,13 @@ In this assignment, we are going to build a more accurate regression model for p
 **Tools: R, GraphLab and Sklearn (Jupyter Notebook)**
 
 **Models Tried: Linear Regression, Random Forest, Gradient Boosting, Decision Trees and Lasso**
+
+# Case 2: Classification
+
+## Description from the course
+
+In this module, we focused on classifiers, applying them to analyzing product sentiment, and understanding the types of errors a classifier makes. We also built an exciting IPython notebook for analyzing the sentiment of real product reviews.
+
+In this assignment, we are going to explore this application further, training a sentiment analysis model using a set of key polarizing words, verify the weights learned to each of these words, and compare the results of this simpler classifier with those of the one using all of the words.
+
+
