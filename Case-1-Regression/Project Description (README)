@@ -30,3 +30,8 @@ Models Used: Linear Regression, Random Forest, Boosting Model
 
 3: Ipython Notebook (Scikit-Learn)
 
+Script: Regression Predicting House Prices with Scikit-learn.ipynb
+
+Report: Regression Predicting House Prices with Scikit-learn.md
+
+Models Used: Linear Regression, Random Forest (Two models), Lasso, Decision Tree, Gradient Boosting (Two Models)
