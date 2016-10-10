@@ -1,5 +1,7 @@
 # Machine Learning Case Studies
-Following the course of Machine Learning Foundation--- Case Study Approach by Washington University, I replicate all the cases used in the course by R, which is more widely used than IPython and GraphLab.  Course Link: https://www.coursera.org/learn/ml-foundations/home/welcome 
+Following the course of Machine Learning Foundation--- Case Study Approach by Washington University, I will finish all the cases used in the course by R, Scikit-learn and GraphLab (Later two are finished with Jupyter Notebook).  Course Link: https://www.coursera.org/learn/ml-foundations/home/welcome
+
+**Note: Due to the computational capability of RStudio, several cases will not be finished in it.**
 
 # Case 1: Regression
 
@@ -11,6 +13,6 @@ In this assignment, we are going to build a more accurate regression model for p
 
 **Folder: Case 1: Regression**
 
-**Tools: R, GraphLab and Sklearn (Ipython Notebook)**
+**Tools: R, GraphLab and Sklearn (Jupyter Notebook)**
 
 **Models Tried: Linear Regression, Random Forest, Gradient Boosting, Decision Trees and Lasso**
