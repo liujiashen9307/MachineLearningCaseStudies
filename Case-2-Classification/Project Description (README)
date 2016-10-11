@@ -16,7 +16,13 @@ The project is finished by three Machine Tools as planned. I will upload the scr
 
 Script, Report: Analyzing product sentiment By GraphLab.ipynb
 
-Models Tries: Logistic Regression, Random Forest, Decision Trees
+Models Tried: Logistic Regression, Random Forest, Decision Trees
 
 2: IPython Notebook (Scikit-Learn)
+
+Script, Report: Amazon Sentiment Classification By Sklearn.ipynb
+
+Model Tried:Logistic Regression, Random Forest, Decision Trees
+
+Priority: Natural Language Process in Python (Graphlab has advanced function that does not need to do it step-by-step)
 
