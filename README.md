@@ -5,7 +5,7 @@ Following the course of Machine Learning Foundation--- Case Study Approach by Wa
 
 # Case 1: Regression
 
-## Description from the course 
+## Description 
 
 In this module, we focused on using regression to predict a continuous value (house prices) from features of the house (square feet of living space, number of bedrooms,...). We also built an iPython notebook for predicting house prices, using data from King County, USA, the region where the city of Seattle is located.
 
@@ -19,10 +19,21 @@ In this assignment, we are going to build a more accurate regression model for p
 
 # Case 2: Classification
 
-## Description from the course
+## Description 
 
 In this module, we focused on classifiers, applying them to analyzing product sentiment, and understanding the types of errors a classifier makes. We also built an exciting IPython notebook for analyzing the sentiment of real product reviews.
 
 In this assignment, we are going to explore this application further, training a sentiment analysis model using a set of key polarizing words, verify the weights learned to each of these words, and compare the results of this simpler classifier with those of the one using all of the words.
 
+**Folder: Case 2: Classification**
 
+**Tools: GraphLab and Sklearn (Jupyter Notebook)**
+
+**Models Tried: Logistic Regression, Random Forest, Gradient Boosting and Decision Trees**
+
+
+# Case 3: Clustering Analysis
+
+## Description 
+
+In this module, we focused on using nearest neighbors and clustering to retrieve documents that interest users, by analyzing their text. We explored two document representations: word counts and TF-IDF. We also built an iPython notebook for retrieving articles from Wikipedia about famous people.
