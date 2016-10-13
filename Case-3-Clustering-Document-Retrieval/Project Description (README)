@@ -1,0 +1,23 @@
+# Classification Model: Finding Similar Articles by using Clustering Analysis
+
+##Data Source
+
+Data (people_wiki.csv) is from Coursera Course: Machine Learning Foundations--- Case Study Approach, taught by Washington University. 
+
+Course Link: https://www.coursera.org/learn/ml-foundations/home/welcome
+
+**Data can be found at the corresponding page of the course after registering in the course. YOU CAN REGISTER IT FOR FREE**
+
+Description:
+
+The project is finished by three Machine Tools as planned. I will upload the scripts in three tools seperately and compare the performance of them.
+
+1. IPython Notebook (GraphLab)
+
+Script, Report: Document retrieval graphlab.ipynb
+
+Models Tried: KNN Model
+
+2: IPython Notebook (Scikit-Learn)
+
+Upcoming....
