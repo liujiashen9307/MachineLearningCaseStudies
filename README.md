@@ -32,7 +32,7 @@ In this assignment, we are going to explore this application further, training a
 **Models Tried: Logistic Regression, Random Forest, Gradient Boosting and Decision Trees**
 
 
-# Case 3: Clustering Analysis
+# Case 3: Clustering Analysis (In Progress with Scikit-learn solution)
 
 ## Description 
 
