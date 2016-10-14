@@ -16,8 +16,10 @@ The project is finished by three Machine Tools as planned. I will upload the scr
 
 Script, Report: Document retrieval graphlab.ipynb
 
-Models Tried: KNN Model
+Method: using Knn to find nearset neighbours.
 
 2: IPython Notebook (Scikit-Learn)
 
-Upcoming....
+Script, Report: Document Retrieval Sklearn.ipynb
+
+Focus: Natural Language Processing.
