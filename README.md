@@ -37,3 +37,12 @@ In this assignment, we are going to explore this application further, training a
 ## Description 
 
 In this module, we focused on using nearest neighbors and clustering to retrieve documents that interest users, by analyzing their text. We explored two document representations: word counts and TF-IDF. We also built an iPython notebook for retrieving articles from Wikipedia about famous people.
+
+**Folder: Case 2: Clustering**
+
+**Tools: GraphLab and Sklearn (Jupyter Notebook)**
+
+**Models Tried: KNN**
+
+**Priority: NLP (Natural Language Processing) in sklearn and graphlab**
+
