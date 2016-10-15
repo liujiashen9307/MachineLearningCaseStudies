@@ -32,7 +32,7 @@ In this assignment, we are going to explore this application further, training a
 **Models Tried: Logistic Regression, Random Forest, Gradient Boosting and Decision Trees**
 
 
-# Case 3: Clustering (Similarity) Analysis 
+# Case 3: Clustering (Similarity) Analysis--Document Retrieval
 
 ## Description 
 
@@ -45,4 +45,10 @@ In this module, we focused on using nearest neighbors and clustering to retrieve
 **Models Tried: KNN**
 
 **Priority: NLP (Natural Language Processing) in sklearn and graphlab**
+
+# Case 4: Recommender System (In Progression with Sklearn Solution)
+
+## Description
+
+In this module, we focused on building recommender systems to find products, music and movies that interest users. We also built an exciting iPython notebook for recommending songs, which compared the simple popularity-based recommendation with a personalized model, and showed the significant improvement provided by personalization.
 
