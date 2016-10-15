@@ -20,4 +20,8 @@ Method: using Graphlab built-in recommendation methods to realize the function o
 
 2: IPython Notebook (Scikit-Learn)
 
-In Progression
+Script, Report: Song Recommendation by Sklearn.ipynb
+
+Method: Break down the details of recommendation system by using sklearn and pandas. In this case, the method is:User-Item Collaborative Filtering.
+
+Notion: Due to the memory of my laptop, I just use first 100,000 rows of data. This demonstrates how computationally powerful the graphlab is.
