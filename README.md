@@ -55,6 +55,6 @@ In this module, we focused on building recommender systems to find products, mus
 
 **Tools: Graphlab and Sklearn (Jupyter Notebook)**
 
-**Priority: Try Graphlab's built-in Recommender Function**
+**Priorities: Try Graphlab's built-in Recommender Function**
 
 **And: Break down the User-Item Collaborative Filtering Based Recommender with pandas and Sklearn**
