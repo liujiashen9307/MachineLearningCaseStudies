@@ -60,7 +60,9 @@ In this module, we focused on building recommender systems to find products, mus
 
 **And: Break down the User-Item Collaborative Filtering Based Recommender with pandas and Sklearn**
 
-# Case 5: Image Retrieval: Deep Learning (In progression with Deep-feature-extraction by using Sklearn)
+# Case 5: Image Retrieval: Deep Learning
+
+**I am still studying the theory behind deep learning, so this part in Sklearn will take longer time to finish.**
 
 ## Description
 
