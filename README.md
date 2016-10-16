@@ -47,6 +47,7 @@ In this module, we focused on using nearest neighbors and clustering to retrieve
 **Priority: NLP (Natural Language Processing) in sklearn and graphlab**
 
 # Case 4: (Personalized) Recommender System 
+
 ## Description
 
 In this module, we focused on building recommender systems to find products, music and movies that interest users. We also built an exciting iPython notebook for recommending songs, which compared the simple popularity-based recommendation with a personalized model, and showed the significant improvement provided by personalization.
@@ -58,3 +59,9 @@ In this module, we focused on building recommender systems to find products, mus
 **Priorities: Try Graphlab's built-in Recommender Function**
 
 **And: Break down the User-Item Collaborative Filtering Based Recommender with pandas and Sklearn**
+
+# Case 5: Image Retrieval: Deep Learning (In progression with Deep-feature-extraction by using Sklearn)
+
+## Description
+
+In this module, we focused on using deep learning to create non-linear features to improve the performance of machine learning. We also saw how transfer learning techniques can be applied to use deep features learned with one dataset to get great performance on a different dataset. We also built an iPython notebooks for both image retrieval and image classification tasks on real datasets.
