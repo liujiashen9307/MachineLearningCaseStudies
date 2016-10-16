@@ -52,7 +52,7 @@ In this module, we focused on using nearest neighbors and clustering to retrieve
 
 In this module, we focused on building recommender systems to find products, music and movies that interest users. We also built an exciting iPython notebook for recommending songs, which compared the simple popularity-based recommendation with a personalized model, and showed the significant improvement provided by personalization.
 
-**Folder: Case 4: Recommender-System
+**Folder: Case 4: Recommender-System**
 
 **Tools: Graphlab and Sklearn (Jupyter Notebook)**
 
