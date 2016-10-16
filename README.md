@@ -67,3 +67,7 @@ In this module, we focused on building recommender systems to find products, mus
 ## Description
 
 In this module, we focused on using deep learning to create non-linear features to improve the performance of machine learning. We also saw how transfer learning techniques can be applied to use deep features learned with one dataset to get great performance on a different dataset. We also built an iPython notebooks for both image retrieval and image classification tasks on real datasets.
+
+**Folder: Deep learning Image Retrieval**
+
+**Tools: Graphlab (Mainly used for transfer learning from Imagenet winning solution.)**
