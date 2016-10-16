@@ -1,1 +1,20 @@
+# Deep Learning: Image Retrieval
 
+##Data Source
+
+Data (image_train,Image_test.csv) is from Coursera Course: Machine Learning Foundations--- Case Study Approach, taught by Washington University. 
+
+Course Link: https://www.coursera.org/learn/ml-foundations/home/welcome
+
+**Data can be found at the corresponding page of the course after registering in the course. YOU CAN REGISTER IT FOR FREE**
+
+Description:
+
+The project is finished by two Machine Tools as planned. I will upload the scripts in three tools seperately and compare the performance of them.
+
+1. IPython Notebook (GraphLab)
+
+Script, Report: Image Classification with Deep Features By Graphlab.ipynb (For classification)
+                Deep features for image retrieval By Graphlab.ipynb (For image retrieval)
+               
+Priority: Demonstrate the effectiveness of deep features and show how to implement the whole process in Graphlab
