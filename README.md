@@ -1,7 +1,7 @@
 # Machine Learning Case Studies
 Following the course of Machine Learning Foundation--- Case Study Approach by Washington University, I will finish all the cases used in the course by R, Scikit-learn and GraphLab (Later two are finished with Jupyter Notebook).  Course Link: https://www.coursera.org/learn/ml-foundations/home/welcome
 
-**Note: Due to the computational capability of RStudio, several cases will not be finished in it.**
+**Note: Due to the computational capability of RStudio, several cases will not be finished with it.**
 
 # Case 1: Regression
 
@@ -46,7 +46,7 @@ In this module, we focused on using nearest neighbors and clustering to retrieve
 
 **Priority: NLP (Natural Language Processing) in sklearn and graphlab**
 
-# Case 4: Recommender System 
+# Case 4: (Personalized) Recommender System 
 ## Description
 
 In this module, we focused on building recommender systems to find products, music and movies that interest users. We also built an exciting iPython notebook for recommending songs, which compared the simple popularity-based recommendation with a personalized model, and showed the significant improvement provided by personalization.
